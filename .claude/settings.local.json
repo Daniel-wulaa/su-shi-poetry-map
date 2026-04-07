@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import sqlite3; conn = sqlite3.connect\\('data/poetry.db'\\); cursor = conn.cursor\\(\\); cursor.execute\\('SELECT COUNT\\(*\\) FROM poetries'\\); poetry_count = cursor.fetchone\\(\\)[0]; cursor.execute\\('SELECT COUNT\\(*\\) FROM locations'\\); location_count = cursor.fetchone\\(\\)[0]; print\\(f'诗词数量：{poetry_count}'\\); print\\(f'地点数量：{location_count}'\\); conn.close\\(\\)\")",
+      "Bash(python3 -c \"import sqlite3; conn = sqlite3.connect\\('data/poetry.db'\\); cursor = conn.cursor\\(\\); cursor.execute\\('SELECT COUNT\\(*\\) FROM poetries'\\); poetry_count = cursor.fetchone\\(\\)[0]; cursor.execute\\('SELECT COUNT\\(*\\) FROM locations'\\); location_count = cursor.fetchone\\(\\)[0]; print\\(f'诗词数量：{poetry_count}'\\); print\\(f'地点数量：{location_count}'\\); cursor.execute\\('SELECT id, ancient_name, name FROM locations LIMIT 5'\\); rows = cursor.fetchall\\(\\); print\\('\\\\\\\\n部分地点:'\\); [print\\(f'  ID:{r[0]} | {r[1]} | {r[2]}'\\) for r in rows]; conn.close\\(\\)\")",
+      "Bash(python3:*)",
+      "Bash(uvicorn app.main:app --reload --host 0.0.0.0 --port 8000)",
+      "Bash(echo \"Backend PID: $!\")",
+      "Bash(pip3 list:*)",
+      "Bash(curl -s http://localhost:8000/api/stats)",
+      "Bash(curl -s http://localhost:8000/api/locations/all)",
+      "Bash(npm run:*)",
+      "Bash(echo \"Frontend PID: $!\")",
+      "Bash(curl -s http://localhost:5173/)",
+      "mcp__chrome-devtools__new_page",
+      "Bash(curl -s \"http://localhost:8000/api/timeline\")",
+      "Bash(curl -s \"http://localhost:8000/docs\")",
+      "Bash(curl -s \"http://localhost:8000/api/poetries?page=1&page_size=3\")",
+      "Bash(curl -s \"http://localhost:5173/\")",
+      "Bash(curl -s -X OPTIONS \"http://localhost:8000/api/locations/all\" -H \"Origin: http://localhost:5173\" -H \"Access-Control-Request-Method: GET\")",
+      "Bash(kill 48551)",
+      "Bash(curl -s \"http://localhost:8000/api/poetries?page=1&page_size=2\")",
+      "Bash(chmod +x:*)",
+      "Bash(brew install:*)",
+      "Bash(gh:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment
+.env
+.env.local
+.env.*.local
+.venv/
+venv/
+ENV/
+env/
+
+# Build output
+dist/
+build/
+*.egg-info/
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Backend data
+backend/data/*.db
+backend/data/*.json
+
+# Frontend
+frontend/.turbo
+frontend/.next
+frontend/out
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Docker
+docker-compose.override.yml
+
+# 敏感信息（确保 API Key 不泄露）
+*.pem
+*.key
+*-key
+secret*
+credentials*
+
+# 可能包含 API Key 的 JSON 文件
+backend/data/*.json
+backend/gushiwen_translations*.json
+backend/ai_interpretations.json
