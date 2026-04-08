@@ -13,7 +13,12 @@ export interface Poetry {
   background: string | null;
   annotations: string | null;
   translations: string | null;
-  ai_interpretation?: string | null;
+  ai_interpretation?: {
+    key_imagery?: string[];
+    artistic_features?: string;
+    historical_context?: string;
+    modern_relevance?: string;
+  } | null;
   created_at: string;
   updated_at: string | null;
 }

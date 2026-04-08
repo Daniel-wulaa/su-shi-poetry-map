@@ -59,12 +59,13 @@ export function Home() {
                   src="//player.bilibili.com/player.html?isOutside=true&aid=113220773741649&bvid=BV1m6x1eYEks&cid=26061504892&p=1"
                   scrolling="no"
                   border="0"
-                  frameBorder="no"
+                  frameBorder="0"
                   framespacing="0"
                   allowFullScreen
                   className="w-full h-full"
                   title="苏轼人生介绍视频"
                   loading="lazy"
+                  style={{ border: '0' }}
                 />
               </div>
             </div>
