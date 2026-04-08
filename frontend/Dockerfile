@@ -6,14 +6,14 @@ WORKDIR /app
 # 复制依赖文件
 COPY package*.json ./
 
+# 复制 .env 文件（在 COPY . . 之前，确保不被覆盖）
+COPY .env .env
+
 # 安装依赖
 RUN npm ci
 
 # 复制源代码和构建配置
 COPY . .
-
-# 复制 .env 文件（用于 Vite 构建时注入环境变量）
-COPY .env .env
 
 # 构建生产版本
 RUN npm run build
