@@ -854,6 +854,12 @@ export function QuotesPage() {
   // 计算总数（优先使用 API 返回的 total，如果没有则使用 items 长度）
   const totalCount = page1?.total ?? allPoetries.length;
 
+  // Debug: 打印数据状态
+  useEffect(() => {
+    console.log('[QuotesPage] page1:', page1, 'page2:', page2, 'page3:', page3);
+    console.log('[QuotesPage] allPoetries.length:', allPoetries.length, 'totalCount:', totalCount);
+  }, [page1, page2, page3, totalCount]);
+
   // 筛选全部诗词（带分页）
   const filteredPoetries = useMemo(() => {
     let result = allPoetries;
