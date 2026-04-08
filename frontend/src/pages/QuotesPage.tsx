@@ -837,21 +837,22 @@ export function QuotesPage() {
   }, [searchQuery]);
 
   // 从 API 获取诗词数据（分 3 页加载，每页 100 首，共 300 首）
-  const { data: page1, isLoading: l1 } = usePoetries(1, 100);
-  const { data: page2, isLoading: l2 } = usePoetries(2, 100);
-  const { data: page3, isLoading: l3 } = usePoetries(3, 100);
+  const { data: page1, isLoading: l1, isSuccess: s1 } = usePoetries(1, 100);
+  const { data: page2, isLoading: l2, isSuccess: s2 } = usePoetries(2, 100);
+  const { data: page3, isLoading: l3, isSuccess: s3 } = usePoetries(3, 100);
 
-  console.log('[QuotesPage] page1:', page1, 'isLoading:', l1);
-  console.log('[QuotesPage] page2:', page2, 'isLoading:', l2);
-  console.log('[QuotesPage] page3:', page3, 'isLoading:', l3);
+  const allPoetries = useMemo(() => {
+    const combined = [
+      ...(page1?.items || []),
+      ...(page2?.items || []),
+      ...(page3?.items || []),
+    ];
+    console.log('[QuotesPage] Combined poetries:', combined.length, 'page1 items:', page1?.items?.length, 'page2 items:', page2?.items?.length, 'page3 items:', page3?.items?.length);
+    return combined;
+  }, [page1, page2, page3]);
 
-  const allPoetries = useMemo(() => [
-    ...(page1?.items || []),
-    ...(page2?.items || []),
-    ...(page3?.items || []),
-  ], [page1, page2, page3]);
-
-  console.log('[QuotesPage] allPoetries length:', allPoetries.length);
+  const isDataLoaded = s1 && s2 && s3;
+  const totalCount = isDataLoaded ? allPoetries.length : 0;
 
   // 筛选全部诗词（带分页）
   const filteredPoetries = useMemo(() => {
@@ -967,7 +968,7 @@ export function QuotesPage() {
         {/* 顶部标签栏 - 与右侧名句赏析对齐 */}
         <div className="bg-gradient-to-r from-primary to-blue-700 text-white py-6 px-6 shrink-0">
           <h2 className="text-xl font-bold mb-1">全部诗词</h2>
-          <p className="text-primary-100 text-xs">数据库共 {allPoetries.length} 首，跟着东坡足迹读诗词</p>
+          <p className="text-primary-100 text-xs">数据库共 {totalCount} 首，跟着东坡足迹读诗词</p>
         </div>
 
         {/* 顶部筛选栏 */}
@@ -1012,7 +1013,7 @@ export function QuotesPage() {
                   setSelectedStyle('all');
                 }}
               >
-                📖 全部诗词 ({allPoetries.length})
+                📖 全部诗词 ( {totalCount} )
               </button>
             </div>
 
