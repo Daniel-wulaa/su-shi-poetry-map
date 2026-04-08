@@ -837,22 +837,22 @@ export function QuotesPage() {
   }, [searchQuery]);
 
   // 从 API 获取诗词数据（分 3 页加载，每页 100 首，共 300 首）
-  const { data: page1, isSuccess: s1 } = usePoetries(1, 100);
-  const { data: page2, isSuccess: s2 } = usePoetries(2, 100);
-  const { data: page3, isSuccess: s3 } = usePoetries(3, 100);
+  const { data: page1 } = usePoetries(1, 100);
+  const { data: page2 } = usePoetries(2, 100);
+  const { data: page3 } = usePoetries(3, 100);
 
+  // 合并所有诗词数据
   const allPoetries = useMemo(() => {
-    const combined = [
+    const items = [
       ...(page1?.items || []),
       ...(page2?.items || []),
       ...(page3?.items || []),
     ];
-    console.log('[QuotesPage] Combined poetries:', combined.length, 'page1 items:', page1?.items?.length, 'page2 items:', page2?.items?.length, 'page3 items:', page3?.items?.length);
-    return combined;
+    return items;
   }, [page1, page2, page3]);
 
-  const isDataLoaded = s1 && s2 && s3;
-  const totalCount = isDataLoaded ? allPoetries.length : 0;
+  // 计算总数（优先使用 API 返回的 total，如果没有则使用 items 长度）
+  const totalCount = page1?.total ?? allPoetries.length;
 
   // 筛选全部诗词（带分页）
   const filteredPoetries = useMemo(() => {
