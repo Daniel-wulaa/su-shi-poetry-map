@@ -36,7 +36,12 @@
       "Bash(aws ssm send-command:*)",
       "Bash(chmod 400 /Users/daniel/Downloads/su-shi-key.pem)",
       "Bash(ssh -i /Users/daniel/Downloads/su-shi-key.pem -o StrictHostKeyChecking=no ubuntu@18.181.27.167 \"cd /home/ubuntu/su-shi-poetry-map && sudo docker-compose build frontend 2>&1\")",
-      "Bash(ssh:*)"
+      "Bash(ssh:*)",
+      "Bash(curl -s http://18.181.27.167:3000)",
+      "Bash(curl -s http://18.181.27.167:8000/api/stats)",
+      "mcp__chrome-devtools__list_pages",
+      "Bash(sudo docker-compose:*)",
+      "Bash(curl:*)"
     ]
   }
 }
