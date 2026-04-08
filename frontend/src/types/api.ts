@@ -14,6 +14,7 @@ export interface Poetry {
   annotations: string | null;
   translations: string | null;
   ai_interpretation?: {
+    summary?: string;
     key_imagery?: string[];
     artistic_features?: string;
     historical_context?: string;

@@ -124,8 +124,8 @@ export function useLocationsByYear(year: number | null) {
   return useQuery<Location[]>({
     queryKey: ['locationsByYear', year],
     queryFn: async () => {
-      // 先获取该年份的诗词
-      const { data: poetryData } = await api.get('/poetries', {
+      // 先获取该年份的诗词（暂未使用，后续需要后端添加 location_ids 字段）
+      await api.get('/poetries', {
         params: {
           page: 1,
           page_size: 100,
@@ -134,7 +134,7 @@ export function useLocationsByYear(year: number | null) {
         },
       });
 
-      // 暂时返回空数组，后续需要后端添加 location_ids 字段
+      // 暂时返回空数组
       return [];
     },
     enabled: year !== null && year !== undefined,
