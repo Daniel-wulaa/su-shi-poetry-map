@@ -13,6 +13,7 @@ export interface Poetry {
   background: string | null;
   annotations: string | null;
   translations: string | null;
+  ai_interpretation?: string | null;
   created_at: string;
   updated_at: string | null;
 }

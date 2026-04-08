@@ -134,14 +134,7 @@ export function useLocationsByYear(year: number | null) {
         },
       });
 
-      // 获取这些诗词关联的地点
-      const poetries = poetryData.items;
-      const locationIds = new Set<number>();
-      poetries.forEach((poetry: any) => {
-        // 这里需要后端添加返回 location_ids 字段，或者单独调用
-      });
-
-      // 暂时返回空数组，后续优化
+      // 暂时返回空数组，后续需要后端添加 location_ids 字段
       return [];
     },
     enabled: year !== null && year !== undefined,

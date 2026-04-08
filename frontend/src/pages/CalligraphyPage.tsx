@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { ExternalLink, Download, Image } from 'lucide-react';
 
 // 苏轼书法作品数据（从 sudongpo.org 爬取）

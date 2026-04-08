@@ -61,7 +61,7 @@ export function Home() {
                   border="0"
                   frameBorder="no"
                   framespacing="0"
-                  allowFullScreen="true"
+                  allowFullScreen
                   className="w-full h-full"
                   title="苏轼人生介绍视频"
                   loading="lazy"

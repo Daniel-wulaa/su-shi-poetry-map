@@ -5,7 +5,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MapPin, Book, Award, AlertTriangle, Home, Calendar, ChevronRight } from 'lucide-react';
+import { MapPin, Book, Award, Calendar, ChevronRight } from 'lucide-react';
 import { useTimeline } from '@/hooks/useApi';
 
 // 苏轼生平大事记数据

@@ -27,7 +27,7 @@ export function PoetryMarkers({
 
       const AMap = window.AMap;
       const mapContainer = document.getElementById('map-container');
-      const mapInstance = mapContainer?.amap;
+      const mapInstance = (mapContainer as any)?.amap || map;
 
       if (!mapInstance) return;
 
@@ -44,7 +44,7 @@ export function PoetryMarkers({
           });
 
           marker.on('click', () => {
-            const currentMap = document.getElementById('map-container')?.amap || mapInstance;
+            const currentMap = (document.getElementById('map-container') as any)?.amap || mapInstance;
 
             if (currentMap.getAllInfoWindows) {
               const allWindows = currentMap.getAllInfoWindows();
