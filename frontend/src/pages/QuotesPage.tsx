@@ -837,9 +837,9 @@ export function QuotesPage() {
   }, [searchQuery]);
 
   // 从 API 获取诗词数据（分 3 页加载，每页 100 首，共 300 首）
-  const { data: page1, isLoading: l1, isSuccess: s1 } = usePoetries(1, 100);
-  const { data: page2, isLoading: l2, isSuccess: s2 } = usePoetries(2, 100);
-  const { data: page3, isLoading: l3, isSuccess: s3 } = usePoetries(3, 100);
+  const { data: page1, isSuccess: s1 } = usePoetries(1, 100);
+  const { data: page2, isSuccess: s2 } = usePoetries(2, 100);
+  const { data: page3, isSuccess: s3 } = usePoetries(3, 100);
 
   const allPoetries = useMemo(() => {
     const combined = [
