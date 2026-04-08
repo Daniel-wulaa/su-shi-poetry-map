@@ -837,14 +837,21 @@ export function QuotesPage() {
   }, [searchQuery]);
 
   // 从 API 获取诗词数据（分 3 页加载，每页 100 首，共 300 首）
-  const { data: page1 } = usePoetries(1, 100);
-  const { data: page2 } = usePoetries(2, 100);
-  const { data: page3 } = usePoetries(3, 100);
+  const { data: page1, isLoading: l1 } = usePoetries(1, 100);
+  const { data: page2, isLoading: l2 } = usePoetries(2, 100);
+  const { data: page3, isLoading: l3 } = usePoetries(3, 100);
+
+  console.log('[QuotesPage] page1:', page1, 'isLoading:', l1);
+  console.log('[QuotesPage] page2:', page2, 'isLoading:', l2);
+  console.log('[QuotesPage] page3:', page3, 'isLoading:', l3);
+
   const allPoetries = useMemo(() => [
     ...(page1?.items || []),
     ...(page2?.items || []),
     ...(page3?.items || []),
   ], [page1, page2, page3]);
+
+  console.log('[QuotesPage] allPoetries length:', allPoetries.length);
 
   // 筛选全部诗词（带分页）
   const filteredPoetries = useMemo(() => {

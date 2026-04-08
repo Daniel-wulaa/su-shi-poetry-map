@@ -41,7 +41,15 @@
       "Bash(curl -s http://18.181.27.167:8000/api/stats)",
       "mcp__chrome-devtools__list_pages",
       "Bash(sudo docker-compose:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(sqlite3:*)",
+      "Bash(scp:*)",
+      "Bash(open -a \"Google Chrome\" --args --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug)",
+      "Bash(tar -czf /tmp/frontend-dist.tar.gz frontend/dist)",
+      "Bash(open:*)",
+      "mcp__chrome-devtools__navigate_page",
+      "Bash(pkill -f \"Google Chrome\")",
+      "mcp__chrome-devtools__list_console_messages"
     ]
   }
 }

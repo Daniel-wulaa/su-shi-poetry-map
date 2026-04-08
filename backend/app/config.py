@@ -28,6 +28,8 @@ class Settings(BaseSettings):
         "http://localhost:5174",
         "http://localhost:5175",
         "http://localhost:3000",
+        "http://18.181.27.167:3000",
+        "http://18.181.27.167:80",
         "https://su-shi-poetry-map.vercel.app",
     ]
 
