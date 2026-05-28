@@ -6,7 +6,7 @@ from typing import Optional
 
 from app.db.session import get_db
 from app.models.location import Location
-from app.models.poetry import PoetryLocation
+from app.models.poetry import Poetry, PoetryLocation
 from app.api.schemas.poetry import (
     LocationResponse,
     LocationCreate,
@@ -139,7 +139,8 @@ async def get_location_poetries(
         return []
 
     poetry_result = await db.execute(
-        select(PoetryResponse)
+        select(Poetry)
         .where(Poetry.id.in_(poetry_ids))
     )
-    return poetry_result.scalars().all()
+    poetries = poetry_result.scalars().all()
+    return [PoetryResponse.model_validate(poetry) for poetry in poetries]
